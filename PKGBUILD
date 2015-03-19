@@ -2,7 +2,7 @@
 
 pkgname=one-context
 pkgver=4.8.1
-pkgrel=3
+pkgrel=4
 pkgdesc='Opennebula Contextualisation'
 arch=('any')
 url='http://dev.opennebula.org/projects/opennebula/files'
@@ -13,11 +13,10 @@ source=("http://dev.opennebula.org/attachments/download/815/one-context_${pkgver
 install=one-context.install
 
 prepare() {
-    patch -p1 < one-context-3.patch
+    patch -p1 < one-context.patch
 }
 
 build() {
-    pwd
     mkdir -p usr/lib/systemd/
 
     cat << eof > usr/lib/systemd/one-context
@@ -44,12 +43,8 @@ eof
 
 
 package() {
-    pwd
-    mv -v ${srcdir}/etc ${pkgdir}
-    mv -v ${srcdir}/usr ${pkgdir}
-    find ${pkgdir}
+    mv ${srcdir}/etc ${pkgdir}
+    mv ${srcdir}/usr ${pkgdir}
 }
-
 md5sums=('87fc768ee92eaaa5c78eee7b9646482d'
-         'c411c5ebe5c4e1894279fba788cd7073')
-
+         '2e82a9d0c616fb2153b85ca5d7d5acac')

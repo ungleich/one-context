@@ -118,6 +118,14 @@ diff -ru orig/etc/one-context.d/00-network archlinux/etc/one-context.d/00-networ
  
  configure_network
 -
+diff -ru orig/etc/one-context.d/03-selinux-ssh archlinux/etc/one-context.d/03-selinux-ssh
+--- orig/etc/one-context.d/03-selinux-ssh	2014-09-05 21:49:03.000000000 +0900
++++ archlinux/etc/one-context.d/03-selinux-ssh	2015-03-19 16:55:08.641459035 +0900
+@@ -1 +1,3 @@
+-restorecon -R -v /root/.ssh
++if command -v restorecon >/dev/null; then
++    restorecon -R -v /root/.ssh
++fi
 diff -ru orig/etc/one-context.d/05-hostname archlinux/etc/one-context.d/05-hostname
 --- orig/etc/one-context.d/05-hostname	2014-09-05 21:49:03.000000000 +0900
 +++ archlinux/etc/one-context.d/05-hostname	2015-03-19 14:50:51.307693741 +0900
