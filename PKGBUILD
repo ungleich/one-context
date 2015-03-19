@@ -2,7 +2,7 @@
 
 pkgname=one-context
 pkgver=4.8.1
-pkgrel=4
+pkgrel=8
 pkgdesc='Opennebula Contextualisation'
 arch=('any')
 url='http://dev.opennebula.org/projects/opennebula/files'
@@ -14,12 +14,14 @@ install=one-context.install
 
 prepare() {
     patch -p1 < one-context.patch
+    mv etc/udev/rules.d/75-persistent-net-generator.rules etc/udev/rules.d/75-net-description.rules 
+    rm -f etc/udev/rules.d/75-cd-aliases-generator.rules
 }
 
 build() {
-    mkdir -p usr/lib/systemd/
+    mkdir -p usr/lib/systemd/system/
 
-    cat << eof > usr/lib/systemd/one-context
+    cat << eof > usr/lib/systemd/system/one-context.service
 [Unit]
 Description=$pkgdesk
 Requires=network.target
@@ -28,7 +30,7 @@ After=network.target
 [Service]
 Type=oneshot
 
-ExecStart=/etc/init.d/one-context
+ExecStart=/etc/init.d/vmcontext start
 
 StandardOutput=syslog
 StandardError=syslog

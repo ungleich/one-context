@@ -191,7 +191,7 @@ gen_network_configuration()
         (
             cat <<EOF
 [Match]
-Match=$DEV
+Name=$DEV
 
 EOF
 
