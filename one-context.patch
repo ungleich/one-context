@@ -1,6 +1,6 @@
 diff -ru orig/etc/one-context.d/00-network archlinux/etc/one-context.d/00-network
 --- orig/etc/one-context.d/00-network	2014-09-05 21:49:03.000000000 +0900
-+++ archlinux/etc/one-context.d/00-network	2015-03-19 16:39:03.774736479 +0900
++++ archlinux/etc/one-context.d/00-network	2015-03-19 17:48:15.851643653 +0900
 @@ -2,6 +2,7 @@
  
  # -------------------------------------------------------------------------- #
@@ -89,7 +89,7 @@ diff -ru orig/etc/one-context.d/00-network archlinux/etc/one-context.d/00-networ
 -EOT
 +            cat <<EOF
 +[Match]
-+Match=$DEV
++Name=$DEV
 +
 +EOF
 +

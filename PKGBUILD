@@ -2,7 +2,7 @@
 
 pkgname=one-context
 pkgver=4.8.1
-pkgrel=8
+pkgrel=9
 pkgdesc='Opennebula Contextualisation'
 arch=('any')
 url='http://dev.opennebula.org/projects/opennebula/files'
@@ -49,4 +49,4 @@ package() {
     mv ${srcdir}/usr ${pkgdir}
 }
 md5sums=('87fc768ee92eaaa5c78eee7b9646482d'
-         '2e82a9d0c616fb2153b85ca5d7d5acac')
+         'd5bdd67b4c4607ca35e4391a1d9ca13f')
